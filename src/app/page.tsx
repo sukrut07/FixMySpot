@@ -38,7 +38,18 @@ import { cn } from "@/lib/utils";
 import CommunityMap from "@/components/CommunityMap";
 import { ThemeToggle } from "@/components/layout/theme-toggle";
 
+declare global {
+  interface Window {
+    THREE?: unknown;
+    VANTA?: {
+      WAVES?: (options: Record<string, unknown>) => { destroy: () => void };
+    };
+  }
+}
+
 const PUNE_CENTER = { lat: 18.5204, lng: 73.8567 };
+const THREE_CDN_SRC = "https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js";
+const VANTA_WAVES_CDN_SRC = "https://cdn.jsdelivr.net/npm/vanta@latest/dist/vanta.waves.min.js";
 
 const navLinks = [
   ["Map", "explore-map"],
@@ -425,7 +436,8 @@ function HeroSection({ radius, setRadius, onDetect, locationStatus, place }: { r
 
   return (
     <section id="explore-map" className="fms-section fms-hero min-h-screen" style={heroMapStyle}>
-      <div className="mx-auto grid min-h-screen max-w-7xl items-center gap-10 px-5 pb-16 pt-28 lg:grid-cols-[0.9fr_1.1fr] lg:pt-24 xl:gap-16">
+      <VantaWavesBackground />
+      <div className="fms-hero-content mx-auto grid min-h-screen max-w-7xl items-center gap-10 px-5 pb-16 pt-28 lg:grid-cols-[0.9fr_1.1fr] lg:pt-24 xl:gap-16">
         <div className="fms-hero-copy">
           <motion.p className="fms-eyebrow" initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }}>
             <MapPin size={15} /> LIVE WITHIN {radius} KM
@@ -499,6 +511,79 @@ function HeroSection({ radius, setRadius, onDetect, locationStatus, place }: { r
       </div>
     </section>
   );
+}
+
+function loadExternalScript(src: string, id: string) {
+  return new Promise<void>((resolve, reject) => {
+    const existingScript = document.getElementById(id) as HTMLScriptElement | null;
+
+    if (existingScript?.dataset.loaded === "true") {
+      resolve();
+      return;
+    }
+
+    if (existingScript) {
+      existingScript.addEventListener("load", () => resolve(), { once: true });
+      existingScript.addEventListener("error", () => reject(new Error(`Failed to load ${src}`)), { once: true });
+      return;
+    }
+
+    const script = document.createElement("script");
+    script.id = id;
+    script.src = src;
+    script.async = true;
+    script.dataset.loaded = "false";
+    script.onload = () => {
+      script.dataset.loaded = "true";
+      resolve();
+    };
+    script.onerror = () => reject(new Error(`Failed to load ${src}`));
+    document.body.appendChild(script);
+  });
+}
+
+function VantaWavesBackground() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    let vantaEffect: { destroy: () => void } | null = null;
+
+    const initVanta = async () => {
+      await loadExternalScript(THREE_CDN_SRC, "three-r134-cdn");
+      await loadExternalScript(VANTA_WAVES_CDN_SRC, "vanta-waves-cdn");
+
+      if (cancelled || !containerRef.current || !window.VANTA?.WAVES) return;
+
+      vantaEffect = window.VANTA.WAVES({
+        el: containerRef.current,
+        color: 0x5588,
+        shininess: 73,
+        waveHeight: 15,
+        waveSpeed: 1,
+        zoom: 1,
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200,
+        minWidth: 200,
+        scale: 1,
+        scaleMobile: 1
+      });
+    };
+
+    initVanta().catch(() => {
+      vantaEffect?.destroy();
+      vantaEffect = null;
+    });
+
+    return () => {
+      cancelled = true;
+      vantaEffect?.destroy();
+    };
+  }, []);
+
+  return <div ref={containerRef} className="fms-vanta-bg" aria-hidden="true" />;
 }
 
 function FloatingFeedCard({ card }: { card: (typeof liveCards)[number] }) {
