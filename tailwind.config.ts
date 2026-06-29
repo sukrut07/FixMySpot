@@ -6,11 +6,11 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        background: "#0D1117",
-        card: "#161B22",
-        border: "#30363D",
-        text: "#C9D1D9",
-        muted: "#8B949E",
+        background: "rgb(var(--app-background) / <alpha-value>)",
+        card: "rgb(var(--app-card) / <alpha-value>)",
+        border: "rgb(var(--app-border) / <alpha-value>)",
+        text: "rgb(var(--app-text) / <alpha-value>)",
+        muted: "rgb(var(--app-muted) / <alpha-value>)",
         orange: "#FF6B35",
         blue: "#004E89",
         teal: "#2EC4B6",

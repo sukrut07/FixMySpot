@@ -1,0 +1,167 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 1180">
+  <defs>
+    <linearGradient id="glass" x1="0" x2="1" y1="0" y2="1">
+      <stop stop-color="#7fb9e8"/>
+      <stop offset="1" stop-color="#0b84d8"/>
+    </linearGradient>
+    <linearGradient id="roof" x1="0" x2="1">
+      <stop stop-color="#b8c9dc"/>
+      <stop offset="1" stop-color="#8fa8c1"/>
+    </linearGradient>
+    <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="10" dy="14" stdDeviation="0" flood-color="#9aa8b6" flood-opacity=".28"/>
+    </filter>
+    <pattern id="sidewalk" width="42" height="42" patternUnits="userSpaceOnUse">
+      <path d="M0 0H42V42H0Z" fill="#edf2f6"/>
+      <path d="M0 0H42M0 21H42M0 42H42M0 0V42M21 0V42M42 0V42" stroke="#d9e1ea" stroke-width="2"/>
+    </pattern>
+    <g id="tree">
+      <path d="M0 55c-20-3-26-25-11-36-4-17 12-31 28-23 12-18 38-8 37 13 19-2 31 17 20 32 8 17-10 31-27 25-8 16-35 13-41-4-2-3-4-5-6-7Z" fill="#38b437"/>
+      <path d="M16 60v38" stroke="#7c8fa5" stroke-width="7" stroke-linecap="round"/>
+      <path d="M23 10c-4 18-20 23-33 30M43 22c-13 18-29 23-50 20" fill="none" stroke="#46c849" stroke-width="10" stroke-linecap="round" opacity=".85"/>
+    </g>
+    <g id="car">
+      <path d="M0 14 30 0l42 13-29 15Z" fill="#f6c21f"/>
+      <path d="M18 7 31 2l17 5-14 7Z" fill="#16324c"/>
+    </g>
+  </defs>
+
+  <rect width="1800" height="1180" fill="#eef1f4"/>
+
+  <g transform="translate(930 -120) rotate(45)">
+    <g stroke="#c8cdd3" stroke-width="76" stroke-linecap="square">
+      <path d="M-900 160H900"/>
+      <path d="M-900 390H900"/>
+      <path d="M-900 620H900"/>
+      <path d="M-900 850H900"/>
+      <path d="M-720 -60V1060"/>
+      <path d="M-440 -60V1060"/>
+      <path d="M-150 -60V1060"/>
+      <path d="M140 -60V1060"/>
+      <path d="M430 -60V1060"/>
+      <path d="M720 -60V1060"/>
+    </g>
+    <g stroke="#f6f8fb" stroke-width="5" opacity=".8">
+      <path d="M-900 115H900M-900 205H900M-900 345H900M-900 435H900M-900 575H900M-900 665H900M-900 805H900M-900 895H900"/>
+      <path d="M-765 -60V1060M-675 -60V1060M-485 -60V1060M-395 -60V1060M-195 -60V1060M-105 -60V1060M95 -60V1060M185 -60V1060M385 -60V1060M475 -60V1060M675 -60V1060M765 -60V1060"/>
+    </g>
+  </g>
+
+  <g transform="translate(900 535) rotate(45)">
+    <rect x="-760" y="-370" width="1380" height="1080" fill="url(#sidewalk)" opacity=".82"/>
+    <rect x="-690" y="-310" width="1260" height="960" fill="#f4f7fa"/>
+  </g>
+
+  <g filter="url(#soft)">
+    <g transform="translate(70 155)">
+      <path d="M0 135 220 25l250 102-218 116Z" fill="url(#roof)"/>
+      <path d="M0 135 252 243v202L0 336Z" fill="#6d8298"/>
+      <path d="M252 243 470 127v206L252 445Z" fill="#50687f"/>
+      <g stroke="#24384e" stroke-width="5" opacity=".65">
+        <path d="M35 175 220 255M35 215 220 295M35 255 220 335M35 295 220 375"/>
+        <path d="M278 260 430 180M278 304 430 224M278 348 430 268"/>
+      </g>
+    </g>
+
+    <g transform="translate(510 205)">
+      <path d="M0 170 210 62l212 95-205 114Z" fill="#c8d5e2"/>
+      <path d="M0 170 217 271v250L0 420Z" fill="#a8b8ca"/>
+      <path d="M217 271 422 157v252L217 521Z" fill="#91a5ba"/>
+      <path d="M80 132 205 70l78 36-124 64Z" fill="url(#glass)"/>
+      <path d="M80 132 159 170v318l-79-38Z" fill="#0b88dc"/>
+      <path d="M159 170 283 106v319l-124 63Z" fill="#0876c1"/>
+      <g stroke="#6cb7ed" stroke-width="4" opacity=".8">
+        <path d="M101 143v302M126 155v302M183 157v300M215 140v300M247 124v300"/>
+        <path d="M88 184 159 218M88 230 159 264M88 276 159 310M88 322 159 356M88 368 159 402"/>
+      </g>
+    </g>
+
+    <g transform="translate(150 570)">
+      <path d="M0 125 320 0l300 122-315 142Z" fill="#dfe7f0"/>
+      <path d="M0 125 305 264v190L0 315Z" fill="#c5d0dc"/>
+      <path d="M305 264 620 122v192L305 454Z" fill="#adbdcc"/>
+      <path d="M118 92 265 36l116 44-144 62Z" fill="#b9c7d5"/>
+      <path d="M55 160 218 235v94L55 255Z" fill="#273c50"/>
+      <path d="M385 224 555 148v97l-170 76Z" fill="#e7edf4"/>
+    </g>
+
+    <g transform="translate(705 705)">
+      <path d="M0 92 190 0l220 96-190 94Z" fill="#d9e4ef"/>
+      <path d="M0 92 220 190v185L0 278Z" fill="#74879b"/>
+      <path d="M220 190 410 96v185l-190 94Z" fill="#334c63"/>
+      <path d="M82 54 187 7l95 41-105 49Z" fill="#0b8cdc"/>
+      <path d="M82 54 177 97v170l-95-43Z" fill="#0b6fb0"/>
+      <path d="M177 97 282 48v172l-105 47Z" fill="#085d95"/>
+    </g>
+
+    <g transform="translate(1135 655)">
+      <path d="M0 105 195 8l210 92-195 103Z" fill="#15344f"/>
+      <path d="M0 105 210 203v280L0 382Z" fill="#0e253b"/>
+      <path d="M210 203 405 100v282L210 483Z" fill="#0878bf"/>
+      <path d="M245 250 365 187v116l-120 64Z" fill="#e6eef6"/>
+      <path d="M276 272 348 235v64l-72 38Z" fill="#fecb2f"/>
+    </g>
+
+    <g transform="translate(1035 320)">
+      <path d="M0 72 110 18l120 50-112 58Z" fill="#17324d"/>
+      <path d="M0 72 118 126v152L0 225Z" fill="#a8b7c7"/>
+      <path d="M118 126 230 68v152l-112 58Z" fill="#8096aa"/>
+      <g fill="#d9e5f0">
+        <rect x="30" y="112" width="22" height="22"/>
+        <rect x="68" y="130" width="22" height="22"/>
+        <rect x="146" y="115" width="24" height="22"/>
+        <rect x="184" y="96" width="24" height="22"/>
+      </g>
+    </g>
+  </g>
+
+  <g transform="translate(840 705)">
+    <path d="M0 0h230v120H0Z" fill="#eef1f4"/>
+    <path d="M0 0h230v120H0Z" fill="none" stroke="#f9fbfd" stroke-width="6"/>
+    <path d="M30 0v120M75 0v120M120 0v120M165 0v120M210 0v120M0 38h230M0 80h230" stroke="#d6dde5" stroke-width="4"/>
+    <use href="#car" x="52" y="48"/>
+    <g transform="translate(145 64) rotate(180)"><use href="#car"/></g>
+  </g>
+
+  <g opacity=".98">
+    <use href="#tree" x="830" y="120"/>
+    <use href="#tree" x="905" y="100"/>
+    <use href="#tree" x="980" y="132"/>
+    <use href="#tree" x="1255" y="105"/>
+    <use href="#tree" x="1330" y="95"/>
+    <use href="#tree" x="1410" y="125"/>
+    <use href="#tree" x="1190" y="312"/>
+    <use href="#tree" x="1270" y="340"/>
+    <use href="#tree" x="1365" y="315"/>
+    <use href="#tree" x="1435" y="380"/>
+    <use href="#tree" x="1570" y="225"/>
+    <use href="#tree" x="1500" y="520"/>
+    <use href="#tree" x="1325" y="590"/>
+    <use href="#tree" x="1120" y="512"/>
+    <use href="#tree" x="1040" y="560"/>
+    <use href="#tree" x="60" y="970"/>
+    <use href="#tree" x="170" y="1000"/>
+    <use href="#tree" x="390" y="990"/>
+    <use href="#tree" x="520" y="1025"/>
+    <use href="#tree" x="1650" y="820"/>
+    <use href="#tree" x="1540" y="890"/>
+    <use href="#tree" x="1430" y="935"/>
+    <use href="#tree" x="1220" y="890"/>
+  </g>
+
+  <g opacity=".95">
+    <use href="#car" x="1090" y="250"/>
+    <use href="#car" x="910" y="820"/>
+    <use href="#car" x="470" y="1040"/>
+    <g transform="translate(180 1025) rotate(180)"><use href="#car"/></g>
+    <g transform="translate(580 1085) rotate(180)"><use href="#car"/></g>
+  </g>
+
+  <g fill="#35ac34" opacity=".95">
+    <path d="M1210 420h220v155h-220z"/>
+    <path d="M1005 420h135v120h-135z"/>
+    <path d="M1360 645h160v160h-160z"/>
+    <path d="M875 365h135v110H875z"/>
+    <path d="M1505 110h230v150h-230z"/>
+  </g>
+</svg>

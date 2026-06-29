@@ -1,6 +1,10 @@
+"use client";
+
 import Link from "next/link";
 import { MapPin, PlusCircle, ShieldCheck } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { buttonClassName } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/layout/theme-toggle";
 
 const links = [
   ["Map", "/map"],
@@ -10,6 +14,9 @@ const links = [
 ];
 
 export function Navbar() {
+  const pathname = usePathname();
+  if (pathname === "/") return null;
+
   return (
     <header className="sticky top-0 z-40 border-b border-border bg-background/88 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
@@ -27,6 +34,7 @@ export function Navbar() {
           ))}
         </nav>
         <div className="hidden items-center gap-2 md:flex">
+          <ThemeToggle compact />
           <Link href="/login" className={buttonClassName({ variant: "ghost" })}>
             Login
           </Link>
@@ -35,9 +43,12 @@ export function Navbar() {
             Report
           </Link>
         </div>
-        <Link href="/map" className="md:hidden">
-          <MapPin className="text-orange" />
-        </Link>
+        <div className="flex items-center gap-2 md:hidden">
+          <ThemeToggle compact />
+          <Link href="/map">
+            <MapPin className="text-orange" />
+          </Link>
+        </div>
       </div>
     </header>
   );

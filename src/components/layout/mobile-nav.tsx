@@ -16,6 +16,8 @@ const items = [
 
 export function MobileNav() {
   const pathname = usePathname();
+  if (pathname === "/") return null;
+
   return (
     <nav className="fixed inset-x-0 bottom-0 z-50 grid grid-cols-6 border-t border-border bg-card/95 md:hidden">
       {items.map((item) => {
